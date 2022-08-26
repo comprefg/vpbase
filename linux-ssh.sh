@@ -17,7 +17,7 @@ if [[ -z "$LINUX_USER_PASSWORD" ]]; then
   echo "Please set 'LINUX_USER_PASSWORD' for user: $USER"
   exit 3
 fi
-: '
+
 echo "### Install ngrok ###"
 
 wget -q https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip
@@ -66,11 +66,6 @@ else
   echo "$HAS_ERRORS"
   exit 4
 fi
-'
-curl -SsL https://playit-cloud.github.io/ppa/key.gpg | sudo apt-key add -
-sudo curl -SsL -o /etc/apt/sources.list.d/playit-cloud.list https://playit-cloud.github.io/ppa/playit-cloud.list
-sudo apt update
-sudo apt install playit
 
 
 
@@ -79,8 +74,8 @@ sudo apt install playit
 #pabloesgod
 #runner
 cd ~
-wget https://filebin.net/3wpil766znlkbnw0/eula.txt
-wget https://papermc.io/api/v2/projects/paper/versions/1.16.5/builds/790/downloads/paper-1.16.5-790.jar
+wget -s https://filebin.net/3wpil766znlkbnw0/eula.txt
+wget -s https://papermc.io/api/v2/projects/paper/versions/1.16.5/builds/790/downloads/paper-1.16.5-790.jar
 #screen -S minecraft
-java -Xmx1024M -Xms1024M -jar paper-1.16.5-790.jar screen
+#java -Xmx1024M -Xms1024M -jar paper-1.16.5-790.jar screen
 
