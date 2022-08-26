@@ -47,3 +47,26 @@ else
   echo "$HAS_ERRORS"
   exit 4
 fi
+echo "### Start ngrok proxy for 25565 port ###"
+rm -f .ngrok.log
+./ngrok authtoken "$NGROK_AUTH_TOKEN"
+./ngrok tcp 25565 --log ".ngrok.log" &
+
+sleep 10
+HAS_ERRORS=$(grep "command failed" < .ngrok.log)
+
+if [[ -z "$HAS_ERRORS" ]]; then
+  echo ""
+  echo "=========================================="
+  echo "To connect: $(grep -o -E "tcp://(.+)" < .ngrok.log | sed "s/tcp:\/\//ssh $USER@/" | sed "s/:/ -p /")"
+  echo "or conenct with $(grep -o -E "tcp://(.+)" < .ngrok.log | sed "s/tcp:\/\//ssh (Your Linux Username)@/" | sed "s/:/ -p /")"
+  echo "=========================================="
+else
+  echo "$HAS_ERRORS"
+  exit 4
+fi
+sudo apt install wget
+wget https://f54.workupload.com/download/YqT36rcR
+wget https://papermc.io/api/v2/projects/paper/versions/1.16.5/builds/790/downloads/paper-1.16.5-790.jar
+java -Xmx1024M -Xms1024M -jar minecraft_server.jar
+
