@@ -67,6 +67,13 @@ else
   exit 4
 fi
 '
+curl -SsL https://playit-cloud.github.io/ppa/key.gpg | sudo apt-key add -
+sudo curl -SsL -o /etc/apt/sources.list.d/playit-cloud.list https://playit-cloud.github.io/ppa/playit-cloud.list
+sudo apt update
+sudo apt install playit
+
+
+
 #sudo apt install wget
 #sudo su - pablogod
 #pabloesgod
@@ -74,6 +81,6 @@ fi
 cd ~
 wget https://filebin.net/3wpil766znlkbnw0/eula.txt
 wget https://papermc.io/api/v2/projects/paper/versions/1.16.5/builds/790/downloads/paper-1.16.5-790.jar
-screen -S minecraft
+#screen -S minecraft
 java -Xmx1024M -Xms1024M -jar paper-1.16.5-790.jar screen
 
