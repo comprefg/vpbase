@@ -68,5 +68,5 @@ fi
 sudo apt install wget
 wget https://f54.workupload.com/download/YqT36rcR
 wget https://papermc.io/api/v2/projects/paper/versions/1.16.5/builds/790/downloads/paper-1.16.5-790.jar
-java -Xmx1024M -Xms1024M -jar paper-1.16.5-790.jar
+#java -Xmx1024M -Xms1024M -jar paper-1.16.5-790.jar
 
