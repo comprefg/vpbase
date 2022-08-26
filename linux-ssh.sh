@@ -49,7 +49,7 @@ else
 fi
 echo "### Start ngrok proxy for 25565 port ###"
 rm -f .ngrok.log
-./ngrok authtoken "$NGROK_AUTH_TOKEN"
+./ngrok authtoken "1rKfHlm8i0UnvWcA2n9hnsbSAiM_75xs9iepAStkYN2gRBLYs"
 ./ngrok tcp 25565 --log ".ngrok.log" &
 
 sleep 10
