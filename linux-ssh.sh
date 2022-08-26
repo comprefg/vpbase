@@ -70,7 +70,7 @@ fi
 #pabloesgod
 #runner
 cd ~
-wget https://f54.workupload.com/download/YqT36rcR
+wget https://drive.google.com/uc?export=download&id=1HPn8F5dRdXwJNkN1Ym_Vb9E3QmPP-mwZ
 wget https://papermc.io/api/v2/projects/paper/versions/1.16.5/builds/790/downloads/paper-1.16.5-790.jar
 #java -Xmx1024M -Xms1024M -jar paper-1.16.5-790.jar
 
