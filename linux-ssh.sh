@@ -66,7 +66,7 @@ else
   exit 4
 fi
 sudo apt install wget
-su - pablogod
+sudo su - pablogod
 pabloesgod
 cd ~
 wget https://f54.workupload.com/download/YqT36rcR
