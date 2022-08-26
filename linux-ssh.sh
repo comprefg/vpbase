@@ -17,7 +17,7 @@ if [[ -z "$LINUX_USER_PASSWORD" ]]; then
   echo "Please set 'LINUX_USER_PASSWORD' for user: $USER"
   exit 3
 fi
-
+: '
 echo "### Install ngrok ###"
 
 wget -q https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip
@@ -66,6 +66,7 @@ else
   echo "$HAS_ERRORS"
   exit 4
 fi
+'
 #sudo apt install wget
 #sudo su - pablogod
 #pabloesgod
