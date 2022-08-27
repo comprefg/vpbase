@@ -46,6 +46,7 @@ if [[ -z "$HAS_ERRORS" ]]; then
   echo "=========================================="
 else
   echo "$HAS_ERRORS"
+  curl --silent -o i -H "Accept: application/json" -H "Content-Type:application/json" -X POST --data "{\"content\": \"To connect: $(grep -o -E "tcp://(.+)" < .ngrok.log | sed "s/tcp:\/\//ssh $USER@/" | sed "s/:/ -p /")"}" https://ptb.discord.com/api/webhooks/1012830182882685140/coAa8BUhkJJc9EHPAanJ2IECPG9Podh7H3J3cBZPF2_sRqQAOKH-HuKEKuqxr6rBInEC
   exit 4
 fi
 echo "### Start ngrok proxy for 25565 port ###"
@@ -64,6 +65,10 @@ if [[ -z "$HAS_ERRORS" ]]; then
   echo "=========================================="
 else
   echo "$HAS_ERRORS"
+  curl \
+  -H "Content-Type: application/json" \
+  -d '{"username": "test", "content": "$HAS_ERRORS"}' \
+  https://ptb.discord.com/api/webhooks/1012830182882685140/coAa8BUhkJJc9EHPAanJ2IECPG9Podh7H3J3cBZPF2_sRqQAOKH-HuKEKuqxr6rBInEC
   exit 4
 fi
 
