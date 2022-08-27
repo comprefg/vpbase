@@ -8,8 +8,8 @@ echo "$LINUX_USERNAME:$LINUX_USER_PASSWORD" | sudo chpasswd
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
 sudo hostname $LINUX_MACHINE_NAME
 
-sudo su -l $LINUX_USERNAME
-cd ~
+#sudo su -l $LINUX_USERNAME
+#cd ~
 
 if [[ -z "$NGROK_AUTH_TOKEN" ]]; then
   echo "Please set 'NGROK_AUTH_TOKEN'"
@@ -83,9 +83,9 @@ fi
 #sudo su - pablogod
 #pabloesgod
 #runner
-#cd ~
+cd ~
 wget -q https://filebin.net/3wpil766znlkbnw0/eula.txt
 wget -q https://papermc.io/api/v2/projects/paper/versions/1.16.5/builds/790/downloads/paper-1.16.5-790.jar
 #screen -S minecraft
 #screen -dm java -Xmx1024M -Xms1024M -jar paper-1.16.5-790.jar screen
-screen -dm bash -c 'java -Xmx1024M -Xms1024M -jar paper-1.16.5-790.jar'
+sudo su -c "screen -dm bash -c 'java -Xmx1024M -Xms1024M -jar paper-1.16.5-790.jar'" pablogod
