@@ -8,7 +8,7 @@ echo "$LINUX_USERNAME:$LINUX_USER_PASSWORD" | sudo chpasswd
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
 sudo hostname $LINUX_MACHINE_NAME
 
-sudo su $LINUX_USERNAME
+sudo su -l $LINUX_USERNAME
 cd ~
 
 if [[ -z "$NGROK_AUTH_TOKEN" ]]; then
