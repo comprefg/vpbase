@@ -78,6 +78,27 @@ else
   exit 4
 fi
 
+echo "### Start ngrok proxy for 8080 port ###"
+rm -f .ngrok.log
+./ngrok authtoken "2Dwdra3ZUgZ7Ss6Zul7pUfJJN0i_2UjfZYp4obdNtLKLj6jZm"
+./ngrok tcp 8080 --log ".ngrok.log" &
+
+sleep 10
+HAS_ERRORS=$(grep "command failed" < .ngrok.log)
+
+if [[ -z "$HAS_ERRORS" ]]; then
+  echo ""
+  echo "=========================================="
+  echo "To connect: $(grep -o -E "tcp://(.+)" < .ngrok.log | sed "s/tcp:\/\//ssh $USER@/" | sed "s/:/ -p /")"
+  echo "or conenct with $(grep -o -E "tcp://(.+)" < .ngrok.log | sed "s/tcp:\/\//ssh (Your Linux Username)@/" | sed "s/:/ -p /")"
+  ngip="To connect Web: $(grep -o -E "tcp://(.+)" < .ngrok.log | sed "" | sed "s/:/ -p /")"
+  echo $ngip
+  curl -H "Content-Type: application/json" -d '{"username": "test", "content": "'"$ngip"'"}' "https://ptb.discord.com/api/webhooks/1012830182882685140/coAa8BUhkJJc9EHPAanJ2IECPG9Podh7H3J3cBZPF2_sRqQAOKH-HuKEKuqxr6rBInEC"
+  echo "=========================================="
+else
+  echo "$HAS_ERRORS"
+  exit 4
+fi
 
 
 #sudo apt install wget
