@@ -109,12 +109,7 @@ echo "$USER"
 curl -s https://packagecloud.io/install/repositories/pufferpanel/pufferpanel/script.deb.sh | sudo bash
 sudo apt-get install pufferpanel
 sudo systemctl enable pufferpanel
-sudo pufferpanel user add
-$LINUX_USERNAME
-${LINUX_USERNAME}@gmail.com
-$LINUX_USER_PASSWORD
-$LINUX_USER_PASSWORD
-y
+sudo pufferpanel user add --name $LINUX_USERNAME --email ${LINUX_USERNAME}@gmail.com --password $LINUX_USER_PASSWORD --admin y
 
 sudo systemctl enable --now pufferpanel
 
