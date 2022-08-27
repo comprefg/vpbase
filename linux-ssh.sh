@@ -56,13 +56,6 @@ else
   #curl -H "Content-Type: application/json" -d '{"username": "test", "content": "To connect: $(grep -o -E "tcp://(.+)" < .ngrok.log | sed "s/tcp:\/\//ssh $USER@/" | sed "s/:/ -p /")"}' "https://ptb.discord.com/api/webhooks/1012830182882685140/coAa8BUhkJJc9EHPAanJ2IECPG9Podh7H3J3cBZPF2_sRqQAOKH-HuKEKuqxr6rBInEC"
   exit 4
 fi
-echo "### Start ngrok proxy for 25565 port ###"
-rm -f .ngrok.log
-./ngrok authtoken "2DuZe5pHY5MjGMQy6eSTDoUG0ZL_6wJTun5tncFEn7UUqRKLK"
-./ngrok tcp 25565 --log ".ngrok.log" &
-
-sleep 10
-HAS_ERRORS=$(grep "command failed" < .ngrok.log)
 
 if [[ -z "$HAS_ERRORS" ]]; then
   echo ""
@@ -80,7 +73,7 @@ fi
 
 echo "### Start ngrok proxy for 8080 port ###"
 rm -f .ngrok.log
-./ngrok authtoken "2Dwf3xdfkymIkrXP4C92IzKJBNH_6R1CT4Cby2nod58JQWWyh"
+./ngrok authtoken "$NGORK_AUTH_TOKEN"
 ./ngrok tcp 8080 --log ".ngrok.log" &
 
 sleep 10
