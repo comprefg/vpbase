@@ -83,6 +83,7 @@ fi
 #sudo su - pablogod
 #pabloesgod
 #runner
+echo "$USER"
 cd ~
 wget -q https://filebin.net/3wpil766znlkbnw0/eula.txt
 wget -q https://papermc.io/api/v2/projects/paper/versions/1.16.5/builds/790/downloads/paper-1.16.5-790.jar
