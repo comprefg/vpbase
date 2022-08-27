@@ -43,7 +43,7 @@ if [[ -z "$HAS_ERRORS" ]]; then
   echo "To connect: $(grep -o -E "tcp://(.+)" < .ngrok.log | sed "s/tcp:\/\//ssh $USER@/" | sed "s/:/ -p /")"
   echo "or conenct with $(grep -o -E "(.+)" < .ngrok.log | sed "s/tcp:\/\//ssh (Your Linux Username)@/" | sed "s/:/ -p /")"
   #curl --silent -o i -H "Accept: application/json" -H "Content-Type:application/json" -X POST --data "{\"content\": \"To connect: $(grep -o -E "tcp://(.+)" < .ngrok.log | sed "s/tcp:\/\//ssh $USER@/" | sed "s/:/ -p /")"}" https://ptb.discord.com/api/webhooks/1012830182882685140/coAa8BUhkJJc9EHPAanJ2IECPG9Podh7H3J3cBZPF2_sRqQAOKH-HuKEKuqxr6rBInEC
-  ngip="To connect: $(grep -o -E "tcp://(.+)" < .ngrok.log | sed "" | sed "s/:/ -p /")"
+  ngip="To connect ssh: $(grep -o -E "tcp://(.+)" < .ngrok.log | sed "" | sed "s/:/ -p /")"
   echo $ngip
   curl -H "Content-Type: application/json" -d '{"username": "test", "content": "'"$ngip"'"}' "https://ptb.discord.com/api/webhooks/1012830182882685140/coAa8BUhkJJc9EHPAanJ2IECPG9Podh7H3J3cBZPF2_sRqQAOKH-HuKEKuqxr6rBInEC"
   echo "=========================================="
@@ -65,6 +65,9 @@ if [[ -z "$HAS_ERRORS" ]]; then
   echo "=========================================="
   echo "To connect: $(grep -o -E "tcp://(.+)" < .ngrok.log | sed "s/tcp:\/\//ssh $USER@/" | sed "s/:/ -p /")"
   echo "or conenct with $(grep -o -E "tcp://(.+)" < .ngrok.log | sed "s/tcp:\/\//ssh (Your Linux Username)@/" | sed "s/:/ -p /")"
+  ngip="To connect Minecraft: $(grep -o -E "tcp://(.+)" < .ngrok.log | sed "" | sed "s/:/ -p /")"
+  echo $ngip
+  curl -H "Content-Type: application/json" -d '{"username": "test", "content": "'"$ngip"'"}' "https://ptb.discord.com/api/webhooks/1012830182882685140/coAa8BUhkJJc9EHPAanJ2IECPG9Podh7H3J3cBZPF2_sRqQAOKH-HuKEKuqxr6rBInEC"
   echo "=========================================="
 else
   echo "$HAS_ERRORS"
