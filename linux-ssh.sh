@@ -73,7 +73,7 @@ fi
 
 echo "### Start ngrok proxy for 8080 port ###"
 rm -f .ngrok.log
-./ngrok authtoken "$NGORK_AUTH_TOKEN"
+./ngrok authtoken "2DxKbvTIvNKwZ043ym9uylI4i1h_5yu4VgVxbaJR4b2LbgWwe"
 ./ngrok tcp 8080 --log ".ngrok.log" &
 
 sleep 10
