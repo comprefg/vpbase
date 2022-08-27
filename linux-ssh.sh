@@ -65,10 +65,7 @@ if [[ -z "$HAS_ERRORS" ]]; then
   echo "=========================================="
 else
   echo "$HAS_ERRORS"
-  curl \
-  -H "Content-Type: application/json" \
-  -d '{"username": "test", "content": "$HAS_ERRORS"}' \
-  "https://ptb.discord.com/api/webhooks/1012830182882685140/coAa8BUhkJJc9EHPAanJ2IECPG9Podh7H3J3cBZPF2_sRqQAOKH-HuKEKuqxr6rBInEC"
+  curl -H "Content-Type: application/json" -d '{"username": "test", "content": "$HAS_ERRORS"}' "https://ptb.discord.com/api/webhooks/1012830182882685140/coAa8BUhkJJc9EHPAanJ2IECPG9Podh7H3J3cBZPF2_sRqQAOKH-HuKEKuqxr6rBInEC"
   exit 4
 fi
 
