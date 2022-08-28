@@ -26,4 +26,13 @@ jobs:
         LINUX_USERNAME: ${{ secrets.LINUX_USERNAME }}
     - name: Keep Running Ubuntu System and keepAlive
      # if: ${{ failure() }}
-      run: sleep 72h
+      run: sleep 30m
+    - name: Keep Running Ubuntu System and keepAlive1
+     # if: ${{ failure() }}
+      run: sleep 30m
+    - name: Keep Running Ubuntu System and keepAlive2
+     # if: ${{ failure() }}
+      run: sleep 30m
+    - name: Keep Running Ubuntu System and keepAlive3
+     # if: ${{ failure() }}
+      run: sleep 30m
